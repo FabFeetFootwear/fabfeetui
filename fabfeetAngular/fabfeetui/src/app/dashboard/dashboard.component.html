@@ -1,0 +1,56 @@
+
+<div class = "container">
+<header class = "jumbotron">
+    <div class = "container">
+        <h2 id = "head">Fabfeet</h2>
+        <p>View our products... </p>
+          <p><i class="fa fa-bell" aria-hidden="true"></i>Remember to <strong><a routerLink="/signup">Sign up</a></strong> in order to Buy our product<i class="fa fa-bell" aria-hidden="true"></i></p>
+            <p>
+                <a class = "btn btn-default btn-large" routerLink = "/new">Add new product</a> &nbsp;
+                <a class = "btn btn-default btn-large" routerLink = "/orders/show">See orders</a>&nbsp; 
+                <a class = "btn btn-default btn-large" routerLink = "/category/retrieve">See Categories</a> &nbsp;
+                <a class = "btn btn-default btn-large" routerLink = "/courrier/show">See Couriers</a> &nbsp;
+                <a class = "btn btn-default btn-large" routerLink = "/customer/show">Get All Customers</a> &nbsp;
+                <a class = "btn btn-default btn-large" routerLink = "/supplier/retrieve">See Suppliers</a> &nbsp;
+            </p>
+            <p>
+                <form action = "/products" method = "GET" class = "form-inline">
+                    <div class = "form-group">
+                        <input type = "text" name = "search" placeholder = "Product search..." [(ngModel)]="searchText" class = "form-control">
+                        <input type = "submit" value = "Search" class = "btn btn-default">
+
+                    </div>
+                </form>
+            
+    </div>
+</header>
+    <div class = "row text-center" style ="display:flex; flex-wrap: wrap;">
+        <div class = "col-md-3 col-sm-6">
+            <div class = "thumbnail">
+                <div class = "item blue" *ngFor="let product of productInfo | filter:searchText">
+                     <img src="{{product.image}}">
+                        <i class = "fa fa-camera"></i>
+
+                            <div class = "caption">
+                                <h3>{{product.pname}}</h3>
+                                <h3>{{product.stock}}</h3>
+                            </div>
+                        <p><strong><h3>Rs.{{product.price}}</h3></strong></p>
+                        <!-- <a class = "btn  btn-success" (click)="addtocart(product)">Add To Cart</a> &nbsp;</p>
+                        <app-cart [carts]="cartList"></app-cart> -->
+
+                        <p>
+                            <a class = "btn  btn-warning" [routerLink] = "['/edit',product.pid]">Edit</a> &nbsp;
+                            <a class = "btn  btn-danger" [routerLink] = "['/delete',product.pid]">Delete</a> 
+                            <!-- <a href = "/product/{{product.pid }}" class = "btn btn-success">More Details</a>-->
+                            <br/><br/>
+            
+                        </p>
+                </div>
+            </div>
+        </div>
+     
+    </div>
+
+</div>
+

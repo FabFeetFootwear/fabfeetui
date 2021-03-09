@@ -1,0 +1,33 @@
+<div>
+    <div class="container">
+        <div class="row">
+            <header class="jumbotron">
+                <h3 style="text-align: center">Update Courrier Details</h3>
+                <div style="width: 100%; margin: 25px auto;">
+    <form [formGroup]="courrierInfo" (ngSubmit)="updateCourrierDetails()">
+        <div class="form-group">
+        <label>CourrierId</label>
+        <input class="form-control" placeholder="Courrier Id" type="text" formControlName="coid"/> <br>
+        </div>
+        <div class="form-group">
+        <label>Delivery Date</label>
+        <input class="form-control" placeholder="Delivery Date" type="date" formControlName="deliveryDate"/> <br>
+        </div>
+        <div class="form-group">
+        <label>Price</label>
+        <input class="form-control" placeholder="Price" type="number" formControlName="price"/> <br>
+        </div>
+        <div class="form-group">
+        <label>Address</label>
+        <input class="form-control" placeholder="Address" type="text" formControlName="address"/> <br>
+        </div>
+        <input type="submit" class="btn btn-success" value="update price"/>&nbsp;
+        <input type="reset" class="btn btn-warning" value="reset"/>
+    </form>
+    {{msg}} <br> <br>
+    <a href="/courrier/show" style="color: blue">Go Back</a>
+</div>
+</header>
+</div>
+</div>
+</div>

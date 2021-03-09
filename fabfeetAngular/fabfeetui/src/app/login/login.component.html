@@ -1,0 +1,33 @@
+<link rel = "stylesheet" type = "text/css" routerLink = "/stylesheets/login.css">
+    <header class = "jumbotron">
+        <div class = "container">
+            <div class = "row">
+                <h1 style = "text-align: center">Login</h1>
+                    <div style = "width:50%; margin: 10px auto;">
+                        <form #userRef="ngForm" (ngSubmit)="checkUser(userRef.value)">
+                            <div class = "form-group">
+                                <label>Username</label>
+                                <input class = "form-control" type = "text" name = "user" ngModel placeholder = "Username">
+                            </div>
+                            <div class = "form-group">
+                                <label>Password</label>
+                                <input class = "form-control" type = "password" name = "pass" ngModel placeholder = "Password">
+                            </div>
+                            <div class = "form-group">
+                                <button class = "btn  btn-primary"> Login! </button>
+                                    <!-- <a routerLink="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a> -->
+                            </div>  
+                            <a routerLink = "/forgot" style="color:blue">Forgot Password?</a>
+                            <div class = "form-group">
+                                <a routerLink = "/signup"> <button class = "btn  btn-success"> Create a new account </button> </a>
+                            </div>
+                        </form>
+                        <p>{{msg}}</p>
+                        <a routerLink = "/" style="color:blue">Go Back</a>
+                    </div>
+                </div>
+            </div>
+</header>   
+
+                            
+                           

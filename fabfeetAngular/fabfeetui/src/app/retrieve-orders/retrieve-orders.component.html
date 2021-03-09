@@ -1,0 +1,48 @@
+<div>
+    <div class = "container">
+        <div class = "row">
+            <header class = "jumbotron">
+                <h1 style = "text-align: center">Show All Orders </h1> 
+                    <div style = "width:100%; margin: 25px auto;">
+                        <!-- <input type="button" value="Load Orders Data" class="btn  btn-success" >&nbsp;
+                        <input type="button" value="Update" class="btn  btn-warning" routerLink = "/orders/update">&nbsp;
+                        <input type="button" value="Delete" class="btn  btn-danger" routerLink = "/orders/delete"><br/><br/><br/> -->
+                        <div style="background-image: url('orders-background.jpg');">
+                        <div *ngIf="flag">
+                            <table border="1" align="center" class="table table-bordered">
+                                <tr >
+                                    <th scope="col">Customer Id</th>
+                                    <th scope="col">Product Id</th>
+                                    <th scope="col">Courrier Id</th>
+                                    <th scope="col">Order Id</th>
+                                    <th scope="col">Delivery Status</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Order Date</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Update</th>
+                                    <th scope="col">Delete</th>
+
+                                </tr>
+                                <tr *ngFor="let Orders of OrdersInfo">
+                                    <td>{{Orders.cid}}</td>
+                                    <td>{{Orders.pid}}</td>
+                                    <td>{{Orders.coid}}</td>
+                                    <td>{{Orders.oid}}</td>
+                                    <td>{{Orders.deliveryStatus}}</td>
+                                    <td>{{Orders.quantity}}</td>
+                                    <td>{{Orders.orderDate}}</td>
+                                    <td>{{Orders.price}}</td>
+                                    <td><input type="button" value="Update" class="btn  btn-warning" routerLink = "/orders/update"></td>
+                                    <td><input type="button" value="Delete" class="btn  btn-danger" routerLink="/orders/delete"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <a href = "/" style="color:blue">Go Back</a>
+                    </div>
+                    </div>
+            </header>
+        </div>
+    </div>
+</div>
+
+
