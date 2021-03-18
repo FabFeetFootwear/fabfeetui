@@ -1,0 +1,52 @@
+<div>
+    <div class = "container">
+        <div class = "row">
+            <header class = "jumbotron">
+                <div align="right"><a routerLink="/">Logout<i class="fa fa-sign-out" aria-hidden="true"></i></a></div>
+            <h1 style = "text-align: center">Show All Suppliers</h1> 
+            <div style = "width:100%; margin: 25px auto;">
+                
+    
+    <!-- <input type="button" value="Load Supplier Data" class="btn  btn-success" (click)="loaddata()">&nbsp; -->
+    <!-- <input type="button" value="Update" class="btn  btn-warning" routerLink = "/supplier/update">&nbsp;
+    <input type="button" value="Delete" class="btn  btn-danger" routerLink = "/supplier/delete"><br/><br/><br/> -->
+
+     <input type="button" value="Store" class="btn  btn-danger" routerLink = "/supplier/store"><br/><br/><br/>
+    
+     <div *ngIf="flag">
+    <table border="1" align="center" class="table table-bordered">
+        <tr>
+         <th scope="col">Supplier Id</th>
+            <th scope="col">Supplier Name</th>
+            <th scope="col">Supplier Username</th>
+            <th scope="col">Supplier Password</th>
+             <th scope="col">Supplier Address</th>
+              <th scope="col"> Supplier Phoneno</th>
+              <th></th>
+              <th></th>
+        </tr>
+         <tr *ngFor="let supplier of supplierinfo ">
+ <td>{{supplier.sid}}</td>
+            <td>{{supplier.sname}}</td>
+            <td>{{supplier.username}}</td>
+            <td>{{supplier.password}}</td>
+             <td>{{supplier.address}}</td>
+              <td>{{supplier.phone}}</td>
+              <td>  <input type="button" value="Update" class="btn  btn-warning" routerLink = "/supplier/update"></td>
+              <td>  <input type="button" value="Delete" class="btn  btn-danger" routerLink = "/supplier/delete"></td>
+    </tr>
+    </table>
+</div>
+<a routerLink = "/home" style="color:blue">Go Back</a>
+               
+         </div>
+        
+      
+            </header>
+        </div>
+    
+        </div>
+</div>
+    
+        
+

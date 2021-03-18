@@ -1,0 +1,54 @@
+<link rel = "stylesheet" type = "text/css" routerLink = "/stylesheets/login.css">
+    <header class = "jumbotron">
+                <div class = "container">
+                    <div class = "row">
+                        <h1 style = "text-align: center">Login</h1><br/>
+                        <div style = "width:50%; margin: 10px auto;">
+                            <div style="background-image: url('login.jpg');">
+                            <!-- <a routerLink="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a> -->
+                            <div align="center">
+                                <h5>Logged In as an  
+                                Admin&nbsp;or,&nbsp;
+                                <a routerLink="/login">Customer</a></h5>
+                              </div>
+
+                            <form #adminRef="ngForm" (ngSubmit)="verify(adminRef.value)">
+                            <div class = "form-group">
+                                <label>Username</label>
+                                <input class = "form-control" type = "text" name = "user" ngModel placeholder = "Username" #loginRef="ngModel" required>
+                                <div *ngIf="loginRef.errors && (loginRef.dirty || loginRef.touched)">
+                                    <span [hidden]="!loginRef.errors.required" style="color: red;">
+                                        UserName is required
+                                    </span>
+                                    </div>
+
+                            </div>
+                            <div class = "form-group">
+                                <label>Password</label>
+                                <input class = "form-control" type = "password" name = "pass" ngModel placeholder = "Password" #passRef="ngModel" required>
+                                <div *ngIf="passRef.errors && (passRef.dirty || passRef.touched)">
+                                    <span [hidden]="!passRef.errors.required" style="color: red;">
+                                        Password is required
+                                    </span>
+                                    </div>
+                            </div>
+
+                            <div class = "form-group">
+                                <button class = "btn  btn-primary" [disabled]="adminRef.invalid"> Login! </button>
+                                <!--<a routerLink="/google.com" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a>-->
+                            </div>  
+                            <a routerLink = "/forgot" style="color:blue">Forgot Password?</a><br/><br/>
+                        
+                       <!-- <hr>or<hr>-->
+                             <div class = "form-group">
+                                    <a routerLink = "/signup"> <button class = "btn  btn-success"> Create a new account </button> </a>
+                                 </div>
+                                </form>
+                                 <p>{{msg}}</p>
+                                 <!-- <a routerLink = "/" style="color:blue">Go Back</a> -->
+
+                                </div>
+                        </div>
+                    </div>
+                </div>
+    </header>   

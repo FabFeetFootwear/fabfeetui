@@ -1,0 +1,20 @@
+<div>
+    <div class="container">
+    <div class="row">
+    <header class="jumbotron">
+    <h3 style="text-align: center">Delete Courrier by coid</h3>
+    <div style="width: 100%; margin: 25px auto;">
+    <form align="center">
+    <div class="form-group">
+    <input type="text" #coIdRef/> <br><br> <br>
+    <input type="button" value="Delete Courrier"  class="btn btn-danger" placeholder="courrier ID" (click)="deleteCourrier(coIdRef.value)"/>
+    </div>
+    <br>
+    {{msg}}
+</form>
+<a href="/courrier/show" style="color: blue">Go Back</a>
+</div>
+</header>
+</div>
+</div>
+</div>

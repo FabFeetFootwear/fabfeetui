@@ -1,0 +1,48 @@
+<div >
+    <!--<h2>All Courrier Details</h2>-->
+    <!--<input type="button" value="Load Courrier Data" (click)="loadData()"/>-->
+    <div class="container">
+        <div class="row">
+            <header class="jumbotron">
+                <div align="right"><a routerLink="/">Logout<i class="fa fa-sign-out" aria-hidden="true"></i></a></div>
+                <h1 style="text-align: center">Show All Courriers</h1>
+                <div style="width: 100%; margin: 25px auto;">
+    <!--<input type="button" value="Load Courrier Data" class="btn btn-success" (click)="loadData()">&nbsp;-->
+    <!-- <input type="button" value="Update" class="btn btn-warning" routerLink="/courrier/update">&nbsp; -->
+    <!-- <input type="button" value="Delete" class="btn btn-danger" routerLink="/courrier/delete">&nbsp; -->
+    <input type="button" value="Store" class="btn btn-success" routerLink="/courrier/new">&nbsp;
+    <input type="button" value="Lowest Price" class="btn btn-info" routerLink="/courrier/asc">&nbsp;
+    <input type="button" value="Highest Price" class="btn btn-primary" routerLink="/courrier/desc">&nbsp;<br/><br/>
+    <div *ngIf="flag">
+        <table border="1" align="center"  class="table table-bordered">
+        <tr>
+            <th scope="col">CoId</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Delivery Date</th>
+            <th scope="col">Payment Type</th>
+            <th scope="col">CName</th>
+            <th scope="col">Price</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+        </tr>
+        <tr *ngFor="let courrier of courrierInfo">
+            <td>{{courrier.coid}}</td>
+            <td>{{courrier.address}}</td>
+            <td>{{courrier.phone}}</td>
+            <td>{{courrier.deliveryDate}}</td>
+            <td>{{courrier.paymentType}}</td>
+            <td>{{courrier.cname}}</td>
+            <td>{{courrier.price}}</td>
+            <td><input type="button" value="Update" class="btn btn-warning" routerLink="/courrier/update">&nbsp;</td>
+            <td><input type="button" value="Delete" class="btn btn-danger" routerLink="/courrier/delete">&nbsp;</td>
+        </tr>
+
+    </table>
+</div> <br> <br>
+<a routerLink = "/home" style="color:blue">Go Back</a>
+</div>
+</header>
+</div>
+</div>
+</div>
