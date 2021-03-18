@@ -1,0 +1,46 @@
+<div>
+    <div class="container">
+        <div class="row">
+            <header class="jumbotron">
+                <div align="right"><a routerLink="/">Logout<i class="fa fa-sign-out" aria-hidden="true"></i></a></div>
+        <h3 style="text-align: center">Store Courrier Details</h3>
+        <div style="width: 100%; margin: 25px auto;">
+<form [formGroup]="courrierInfo" (ngSubmit)="storeCourrierDetails()">
+    <div class="form-group">
+    <label>Courrier Id</label>
+    <input  class="form-control" placeholder="Courrier Id" type="text" formControlName="coid"/> <br>
+    </div>
+    <div class="form-group">
+    <label>Courrier Address</label>
+    <input class="form-control" placeholder="Courrier Address" type="text" formControlName="address"/> <br>
+    </div>
+    <div class="form-group">
+    <label>Phone</label>
+    <input class="form-control" placeholder="Phone Number" type="text" formControlName="phone"/> <br>
+    </div>
+    <div class="form-group">
+    <label>Delivery Date</label>
+    <input class="form-control" placeholder="Delivery Date" type="date" formControlName="deliveryDate"/> <br>
+    </div>
+    <div class="form-group">
+    <label>Payment Type</label>
+    <input class="form-control" placeholder="Payment Type" type="text" formControlName="paymentType"/> <br>
+    </div>
+    <div class="form-group">
+    <label>Name</label>
+    <input class="form-control" placeholder="Name" type="text" formControlName="cname"/> <br>
+    </div>
+    <div class="form-group">
+    <label>Price</label>
+    <input class="form-control" placeholder="Price" type="number" formControlName="price"/> <br>
+    </div>&nbsp;
+    <input type="submit"class="btn btn-success" value="store courrier info"/>&nbsp;
+    <input type="reset" class="btn btn-warning" value="reset"/>
+</form>
+{{msg}} <br><br>
+<a href="/courrier/show">Go Back</a>
+</div>
+</header>
+</div>
+</div>
+</div>
