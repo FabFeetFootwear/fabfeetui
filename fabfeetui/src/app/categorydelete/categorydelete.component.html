@@ -1,0 +1,27 @@
+<div>
+    <div class = "container">
+        <div class = "row">
+            <header class = "jumbotron">
+            <h3 style = "text-align: center">Delete Category</h3> 
+            <div style = "width:100%; margin: 25px auto;">
+    <form align="center">
+    
+    
+    <div class = "form-group">
+        <input type="text" #cIdRef><br/><br/><br/>
+        <input class = "form-control" type="button" value="Delete!" class="btn btn-danger" (click)="deleteCategory(cIdRef.value)" placeholder="Category ID">
+        
+    </div>
+    <br/>
+    {{msg}}
+</form>
+<a href = "/category/retrieve" style="color:blue">Go Back</a>
+               
+            </div>
+      
+            </header>
+        </div>
+    
+        </div>
+</div>
+

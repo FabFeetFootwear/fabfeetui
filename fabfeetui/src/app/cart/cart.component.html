@@ -1,0 +1,109 @@
+<div>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" routerLink="/">Fabfeet </a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                        <!-- <li class="<%= typeof page !== 'undefined' && page === 'carts' ? 'active' : '' %>"><a routerLink="/dashboard">Home <i class="fa fa-home" aria-hidden="true"></i></a></li> -->
+                    <li class="<%= typeof page !== 'undefined' && page === 'carts' ? 'active' : '' %>"><a routerLink = "/help"> Help <i class="fa fa-info" aria-hidden="true"></i></a></li>
+                        <!-- <li>
+                            <a routerLink="/about">About</a>
+                          </li> -->
+                    <li>
+                        <a routerLink="/contactus">Contact</a>
+                    </li>
+                    <li>
+                        <a routerLink="/privacy">Privacy</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a class="nav-item nav-link" (click)="logout()">Logout<i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+                        
+                    <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"><a routerLink="/signup">Sign Up <i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
+                     
+                
+                    <li class="cart_icon" routerLink="/carts">
+                        <i class="fa fa-shopping-cart" ></i>
+                        <div class="cart_value">
+                            {{cartItem}}
+                        </div>
+    
+                    </li></ul>
+                </div>
+                
+            </div>        </nav>
+<div class = "bod">  
+    <div class="container main-section">  
+        <div class="row">  
+
+            <div class="col-lg-12 pb-2">
+
+                <h2> Fabfeet</h2>  
+            </div> 
+            <form #userRef="ngForm" (ngSubmit)="verify(userRef.value)"> 
+            <div class="col-lg-12 pl-3 pt-3" *ngIf="getCartDetails" >  
+                <table class="table table-hover border bg-white">  
+                    <thead>  
+                        <tr>  
+                            <th> <h4> <b>  Product Details </b> </h4> </th>  
+                            <th > <h4> <b> Price  </b></h4>  </th>  
+                            <th style="width:10%;"> <h4> <b> Quantity  </b></h4>  </th> 
+                            <th> <h4> <b> Subtotal  </b></h4>  </th>  
+                            <th> <h4> <b> Action  </b></h4>  </th>  
+                        </tr>  
+                    </thead>  
+                    <tbody>  
+                        <tr *ngFor="let getCart of getCartDetails">  
+                            <td>  
+                                <div class="row" >  
+                                    <div class="col-lg-2 Product-img">  
+                                        <img src="{{getCart.image}}" alt="..." class="img-responsive"/>  
+                                    </div>  
+                                    <div class="col-lg-4" >  
+                                        <h5 class="nomargin"> <b>{{getCart.pname}}  </b> </h5>  
+                                    </div>  
+                                </div>  
+                            </td>  
+                            <td> 
+                                <strong>Rs. {{getCart.price}} </strong>
+                            </td>  
+                            <div class="content">
+                                <button type="button" class="btn1" (click)="increaseQuantity(getCart.pid,getCart.quantity)"><i class="fa fa-plus"></i></button>&nbsp;
+                                <span>{{getCart.quantity}}</span>&nbsp;
+                                <button type="button" class="btn1" (click)="decreaseQuantity(getCart.pid,getCart.quantity)"><i class="fa fa-minus"></i></button>
+                            </div>
+                            <td> <strong> Rs.{{getCart.quantity * getCart.price | number}} </strong> </td>  
+                            <td class="actions" data-th="" style="width:10%;">  
+                                <!-- <button class="btn btn-info btn-sm"> <span class="glyphicon glyphicon-shopping-cart"> </span> </button>   -->
+                                <button class="btn btn-danger btn-sm" (click)="remove(getCart.pid)"> <i class="fa fa-trash-o"> </i> </button>                               
+                            </td>  
+                        </tr>  
+                        
+                    </tbody>  
+                    <tfoot>  
+                        <tr>  
+                            <td> <a href="/dashboard" class="btn btn-success "> <i class="fa fa-angle-left"> </i> Continue Shopping </a> </td>
+                            <!-- <td><button class="btn btn-danger btn-sm" (click)="removeAll()"> <i class="fa fa-trash-o"> </i> Remove All Item</button></td>   -->
+                            <td colspan="2" class="hidden-xs"> </td>  
+                            <td class="hidden-xs text-center" style="width:10%;"> <strong> Total : Rs. {{total}} </strong> </td>  
+                            <td> <button  class="btn btn-success btn-block"  [disabled]="userRef.invalid" (Click)="onSubmit()" > Checkout <i class="fa fa-angle-right"> </i> </button> </td>  
+                        </tr>  
+                    </tfoot>  
+                </table>  
+            </div> 
+            <!-- If cart is empty then display message-->
+        <div *ngIf="getCartDetails.length === 0" class="alert alert-warning col-md-12" role="alert">
+           <div align="center"> <b>Your shopping cart is Empty</b></div>
+        </div> 
+        </form>
+        </div>  
+    </div> 
+</div> 

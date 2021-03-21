@@ -1,0 +1,113 @@
+<div>
+    <header class = "jumbotron">
+        <div class = "container">
+            <div class = "row">
+                <h1 style = "text-align: center">Sign Up</h1>
+                    <div style = "width:50%; margin: 5px auto;">
+                        <form action = "/register" method = "POST" #userRef="ngForm" (ngSubmit)="storeCustomersDetails(userRef.value)">
+                            <div class="form-group">
+        <label><b>User id</b></label>  
+        <input class = "form-control" type = "text" name = "cid" ngModel placeholder = "UserId" #loginRef="ngModel" required>
+        <div *ngIf="loginRef.errors && (loginRef.dirty || loginRef.touched)">
+            <span [hidden]="!loginRef.errors.required" style="color: red;">
+                UserId is required
+            </span>
+    </div> 
+
+
+<div class="form-group">
+        <label><b>Name</b></label>
+        <input type="text" name="cname" class="form-control form-control-lg"  ngModel #nRef="ngModel" placeholder="Enter Your Name" required minlength="2">        
+        <div *ngIf="nRef.errors && (nRef.dirty || nRef.touched)">
+            <span [hidden]="!nRef.errors.required" style="color: red;">
+                    Name is required
+            </span>
+        </div>
+    </div>   
+
+
+    <div class="form-group">      
+        <label><b>Username</b></label>
+        <input type="text" class="form-control form-control-lg" name="username" ngModel #uRef="ngModel"   placeholder="Enter Username" required minlength="2">
+        <div *ngIf="uRef.errors && (uRef.dirty || uRef.touched)">
+            <span [hidden]="!uRef.errors.required" style="color: red;">
+                    UserName is required
+            </span>
+        </div>
+    </div>
+    
+    
+        <div class="form-group">
+        <label><b>Password</b></label>
+        <input type="password" name="password" ngModel #passRef="ngModel" class="form-control form-control-lg"  placeholder="Password"
+        required 
+        pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-]).{8,}$"
+        />
+        <div *ngIf="passRef.errors && (passRef.dirty || passRef.touched)">
+            <span [hidden]="!passRef.errors.pattern"
+            style="color: red;">
+            Password must contain at least 8 character with 1 uppercase,1 lowercase, 1 number and 1 special character only 
+            </span>
+        </div>
+
+        <div *ngIf="passRef.errors && (passRef.dirty || passRef.touched)">
+            <span [hidden]="!passRef.errors.required" style="color: red;">
+                    Password is required
+            </span>
+        </div>
+        </div>
+
+         <div class="form-group">
+        <label><b>Email</b></label>
+        <input type="email" name="email" ngModel #emailRef="ngModel" class="form-control form-control-lg"  placeholder="Email"
+        required 
+        pattern="[a-zA-Z0-9.-]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required
+        />
+        <div *ngIf="emailRef.errors && (emailRef.dirty || emailRef.touched)">
+            <span [hidden]="!emailRef.errors.pattern"
+            style="color: red;">
+           Email must be valid 
+            </span>
+        </div>
+
+        <div *ngIf="emailRef.errors && (emailRef.dirty || emailRef.touched)">
+            <span [hidden]="!emailRef.errors.required" style="color: red;">
+                    Email is required
+            </span>
+        </div>
+        </div>
+  
+ 
+    <div class="form-group">
+    <label><b>Mobile Number</b></label>
+    <input type="number"  name="phone"  ngModel #mRef="ngModel" class="form-control form-control-lg" placeholder="Mobile number"
+        required
+        pattern="^((\\+91-?)|0)?[0-9]{10}$"/>
+    <div *ngIf="mRef.errors && (mRef.dirty || mRef.touched)">
+            <span [hidden]="!mRef.errors.required" style="color: red;">
+                    Mobile number is required
+            </span>
+            <span  [hidden]="mRef.errors && mRef.errors.pattern"></span>
+    </div>
+
+    <div class="form-group">
+    <label><b>Address</b></label>
+    <input type="text" formControlName="address" class="form-control form-control-lg" placeholder="Address">
+    </div>
+        
+                        <button class = "btn btn-primary" routerLink = "/signup" [disabled]="nRef.invalid"> Sign Up </button>&nbsp;<br/><br/>
+                    <p>  {{msg}}</p>
+                        <div class = "form-group">
+                        <a routerLink = "/login"> <button class = "btn  btn-success">Already have an account </button> </a>
+                    </div>
+         
+              
+                <br/>
+            <!-- <a href = "/" style="color:blue">Go Back</a> -->
+            </div>
+        
+    
+    
+
+    
+   

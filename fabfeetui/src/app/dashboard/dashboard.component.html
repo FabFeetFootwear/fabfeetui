@@ -1,0 +1,98 @@
+
+<div>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" routerLink="/">Fabfeet </a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                        <!-- <li class="<%= typeof page !== 'undefined' && page === 'carts' ? 'active' : '' %>"><a routerLink="/dashboard">Home <i class="fa fa-home" aria-hidden="true"></i></a></li> -->
+                    <li class="<%= typeof page !== 'undefined' && page === 'carts' ? 'active' : '' %>"><a routerLink = "/help"> Help <i class="fa fa-info" aria-hidden="true"></i></a></li>
+                        <!-- <li>
+                            <a routerLink="/about">About</a>
+                          </li> -->
+                    <li>
+                        <a routerLink="/contactus">Contact</a>
+                    </li>
+                    <li>
+                        <a routerLink="/privacy">Privacy</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a class="nav-item nav-link" (click)="logout()">Logout<i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+                        
+                    <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"><a routerLink="/signup">Sign Up <i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
+                     
+                </ul>
+                </div>
+                
+            </div>        </nav>
+<div class = "container">
+<header class = "jumbotron">
+    <div class = "container">
+       
+        <h2 id = "head">Fabfeet</h2>
+        <p>View our products... </p>
+          
+            <p>
+                <a class = "btn btn-default btn-large" routerLink = "/new">Add new product</a> &nbsp;
+                <a class = "btn btn-default btn-large" routerLink = "/orders/show">See orders</a>&nbsp; 
+                <a class = "btn btn-default btn-large" routerLink = "/category/retrieve">See Categories</a> &nbsp;
+                <a class = "btn btn-default btn-large" routerLink = "/courrier/show">See Couriers</a> &nbsp;
+                <a class = "btn btn-default btn-large" routerLink = "/customer/show">Get All Customers</a> &nbsp;
+                <a class = "btn btn-default btn-large" routerLink = "/supplier/retrieve">See Suppliers</a> &nbsp;
+               
+            </p>
+            
+                <form action = "/products" method = "GET" class = "form-inline">
+                    <div class = "form-group">
+                        <input type = "text" name = "search" placeholder = "Product search..." [(ngModel)]="searchText" class = "form-control">
+                        <input type = "submit" value = "Search" class = "btn btn-default">
+
+                    </div>
+                </form>
+               
+               
+    </div>
+</header>
+    <div class = "row card-deck text-center" >
+        <!-- <div class = "col-md-3 col-sm-6">
+            <div class = "thumbnail"> -->
+                <div class = "col-lg-4" *ngFor="let product of productInfo | filter:searchText">
+                    <div class="card mb-4">
+                     <img src="{{product.image}}" alt="img" height="350" width="300">
+                        <div class="card-body">
+
+                            <div class = "text-center">
+                                 <h3 >Product Id: {{product.pid}}</h3>
+                                <h3 >{{product.pname}}</h3>
+                                <h3>In stock:{{product.stock}}</h3>
+                            </div>
+                        <p><strong><h3>Rs.{{product.price}}</h3></strong></p>
+                         <!-- <a class = "btn  btn-success" (click)="addtocart(product)">Add To Cart</a> &nbsp;
+                       
+                        <app-cart [carts]="cartList" (productAdded)="addtocart($event)"></app-cart> -->
+
+                        <p>
+                            <a class = "btn  btn-warning" [routerLink] = "['/edit',product.pid]">Edit</a> &nbsp;
+                            <a class = "btn  btn-danger" [routerLink] = "['/delete',product.pid]" >Delete</a> 
+                            <!-- <a href = "/product/{{product.pid }}" class = "btn btn-success">More Details</a>-->
+                            <br/><br/>
+                       
+            
+                        </p>
+                    <hr>
+                </div>
+            </div>
+        </div>
+     
+    </div>
+</div>
+

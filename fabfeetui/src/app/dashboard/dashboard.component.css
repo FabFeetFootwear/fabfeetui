@@ -1,0 +1,15 @@
+.jumbotron{
+    background-image: url("/assets/images/comp.jpeg") ;
+    background-size: cover;
+  
+}
+nav{
+position: absolute;
+top: 0;
+/* color: #000; 
+right: 0;
+bottom: 0;
+width:6%;
+height: 8%; */
+
+}

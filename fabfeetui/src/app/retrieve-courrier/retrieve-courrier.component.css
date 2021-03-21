@@ -1,0 +1,6 @@
+.jumbotron{
+    background-image: url("/assets/images/login.jpg") ;
+    background-size: cover;
+    height: 900;
+    /* opacity: 0.9; */
+}
